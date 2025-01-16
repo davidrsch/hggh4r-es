@@ -44,7 +44,11 @@ Incluso podrías adelantarte a esto y almacenar el PAT explícitamente ahora mis
 
 ```{sh eval = FALSE}
 > gitcreds::gitcreds_set()
+```
 
+Pegue el PAT en respuesta al diálogo en la consola:
+
+```
 ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 -> Adding new credentials...
 -> Removing credentials from cache...
@@ -81,12 +85,10 @@ Aunque sugiero que adoptes HTTPS como estilo de vida, es bueno saber que en real
 Las URL remotas HTTPS se ven así `https://github.com/<OWNER>/<REPO>.git`.\
 Las URL remotas SSH se ven así `git@github.com:<OWNER>/<REPO>.git`.
 
-::: {layout-ncol=2 fig-alt="Getting an HTTPS or SSH URL from GitHub"}
+::: {layout-ncol="2" fig-alt="Getting an HTTPS or SSH URL from GitHub"}
+![](img/github-https-url.png)
 
-![](img/github-https-url.png){}
-
-![](img/github-ssh-url.png){}
-
+![](img/github-ssh-url.png)
 :::
 
 Cuando ejecutas un comando como `git push origin my-cool-feature-branch`, Git busca la URL que has almacenado para el control remoto `origin` y usa el protocolo implícito en el formato de la URL. El protocolo es una decisión en el momento del juego.
@@ -150,8 +152,7 @@ usethis::create_github_token()
 
 El usethis enfoque lo lleva a un formulario precargado donde hemos preseleccionado algunos alcances recomendados, que puede revisar y ajustar antes de hacer clic en "Generar token". Al momento de escribir este artículo, los alcances recomendados por este uso son "repo", "user", "gist" y "workflow".
 
-
-![](img/new-personal-access-token-screenshot.png){fig-alt="Screenshot: Getting a new personal access token on GitHub" fig-align='center' width="100%"}
+![](img/new-personal-access-token-screenshot.png){fig-alt="Screenshot: Getting a new personal access token on GitHub" fig-align="center" width="100%"}
 
 Es una muy buena idea describir el propósito del token en el campo *Note*, porque algún día podría tener varios PAT. Recomendamos nombrar cada token según su caso de uso, como la computadora o el proyecto para el que lo está usando, por ejemplo. "personal-macbook-air" o "vm-for-project-xyz". En el futuro, te encontrarás mirando esta lista de tokens, porque inevitablemente necesitarás volver a generar o eliminar uno de ellos. Haz que sea fácil descubrir con qué token has venido a jugar.
 
@@ -163,7 +164,7 @@ No podrá volver a ver este token, así que no cierre ni salga de esta ventana d
 
 ¡Trate este PAT como una contraseña! ¡Nunca conectes tu PAT a tu código! Una PAT siempre debe recuperarse implícitamente, por ejemplo, del almacén de credenciales de Git. Estamos a punto de ayudarle a almacenar el PAT en un lugar seguro, donde los paquetes de línea de comandos Git, RStudio y R puedan descubrirlo.
 
-Si usa una aplicación de administración de contraseñas, como 1Password o LastPass (¡muy recomendable!), es posible que desee agregar también esta PAT (y su *Nota*) a la entrada de GitHub, donde ya está almacenando su nombre de usuario y contraseña. . Almacenar su PAT en el almacén de credenciales de Git es una conveniencia semipersistente, algo así como un caché del navegador o "recordarme" en un sitio web[^connect-https-pat-2] y es posible que necesite volver a ingresar su PAT en el futuro. Podrías decidir aceptar la impermanencia de tu PAT y, si de alguna manera se pierde, simplemente [regenerarás el PAT y lo restaurarás](#sec-regenerate-pat). Si acepta el período de vencimiento predeterminado de 30 días, este es un flujo de trabajo que utilizará con frecuencia de todos modos. Pero si crea tokens duraderos o quiere jugar con las funciones para configurar o borrar sus credenciales de Git, puede resultar útil tener su propio registro de su PAT en un lugar seguro, como 1Password o LastPass.
+Si usa una aplicación de administración de contraseñas, como 1Password (¡muy recomendable!), es posible que desee agregar también esta PAT (y su *Nota*) a la entrada de GitHub, donde ya está almacenando su nombre de usuario y contraseña. Almacenar su PAT en el almacén de credenciales de Git es una conveniencia semipersistente, algo así como un caché del navegador o "recordarme" en un sitio web[^connect-https-pat-2] y es posible que necesite volver a ingresar su PAT en el futuro. Podrías decidir aceptar la impermanencia de tu PAT y, si de alguna manera se pierde, simplemente [regenerarás el PAT y lo restaurarás](#sec-regenerate-pat). Si acepta el período de vencimiento predeterminado de 30 días, este es un flujo de trabajo que utilizará con frecuencia de todos modos. Pero si crea tokens duraderos o quiere jugar con las funciones para configurar o borrar sus credenciales de Git, puede resultar útil tener su propio registro de su PAT en un lugar seguro, como 1Password.
 
 [^connect-https-pat-2]: ¡Ja ja! Todos sabemos lo bien que funciona "recuérdame".
 
@@ -171,7 +172,7 @@ Si usa una aplicación de administración de contraseñas, como 1Password o Last
 
 En este punto, asumo que generó una PAT y la tiene disponible, en una o ambas de estas maneras:
 
--   En un sistema seguro y a largo plazo para almacenar secretos, como 1Password o LastPass
+-   En un sistema seguro y a largo plazo para almacenar secretos, como 1Password
 -   Durante los próximos minutos, en una ventana del navegador o en el portapapeles
 
 Hay un par de formas de ingresar su PAT en la tienda de credenciales de Git:

@@ -60,7 +60,7 @@ Si ve un par de archivos como `id_rsa.pub` e `id_rsa` o `id_ed25519` y `id_ed255
 
 ### Opción 1: configurar desde RStudio
 
-Vaya a *Tools \> Global Options...\> Git/SVN \> Create RSA Key...*.
+Vaya a *Tools \> Global Options...\> Git/SVN \> Create SSH Key...*.
 
 RStudio le solicita una frase de contraseña. Es opcional, pero también una buena práctica. Configurar su sistema para un funcionamiento fluido con una clave protegida con contraseña introduce más partes móviles. Si es completamente nuevo en esto, omita la frase de contraseña (¡o use HTTPS!) e impleméntela la próxima vez, cuando se sienta más cómodo con la configuración del sistema. Al principio no usaba una frase de contraseña, pero ahora la uso y la registro en un administrador de contraseñas.
 
