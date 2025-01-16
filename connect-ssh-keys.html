@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>10&nbsp; Configurar claves para SSH – Git y GitHub con R</title>
@@ -68,10 +68,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-1289a056d6e06d0b77e3d52542671636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -667,7 +667,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">10.4</span> Crear un par de claves SSH</h2>
 <section id="opción-1-configurar-desde-rstudio" class="level3" data-number="10.4.1"><h3 data-number="10.4.1" class="anchored" data-anchor-id="opción-1-configurar-desde-rstudio">
 <span class="header-section-number">10.4.1</span> Opción 1: configurar desde RStudio</h3>
-<p>Vaya a <em>Tools &gt; Global Options…&gt; Git/SVN &gt; Create RSA Key…</em>.</p>
+<p>Vaya a <em>Tools &gt; Global Options…&gt; Git/SVN &gt; Create SSH Key…</em>.</p>
 <p>RStudio le solicita una frase de contraseña. Es opcional, pero también una buena práctica. Configurar su sistema para un funcionamiento fluido con una clave protegida con contraseña introduce más partes móviles. Si es completamente nuevo en esto, omita la frase de contraseña (¡o use HTTPS!) e impleméntela la próxima vez, cuando se sienta más cómodo con la configuración del sistema. Al principio no usaba una frase de contraseña, pero ahora la uso y la registro en un administrador de contraseñas.</p>
 <p>Haga clic en “Crear” y RStudio generará un par de claves SSH, almacenadas en los archivos <code>~/.ssh/id_rsa</code> y <code>~/.ssh/id_rsa.pub</code>.</p>
 <p>Tenga en cuenta que actualmente RStudio solo genera claves RSA, mientras que la recomendación estándar de GitHub y GitLab es utilizar claves Ed25519. Si desea seguir ese consejo, genere sus claves en el shell por ahora.</p>
@@ -992,8 +992,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1104,7 +1102,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

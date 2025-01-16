@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.40">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>9&nbsp; Token de acceso personal para HTTPS – Git y GitHub con R</title>
@@ -68,10 +68,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-1289a056d6e06d0b77e3d52542671636.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -638,13 +638,13 @@ fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'</code></pr
 <p>Proporcione esta PAT la próxima vez que una operación de Git solicite su contraseña<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>Incluso podrías adelantarte a esto y almacenar el PAT explícitamente ahora mismo. En R, llame <code><a href="https://gitcreds.r-lib.org/reference/gitcreds_get.html">gitcreds::gitcreds_set()</a></code> para recibir un mensaje donde puedes pegar tu PAT:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Pegue el PAT en respuesta al diálogo en la consola:</p>
+<pre><code>? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-&gt; Adding new credentials...
+-&gt; Removing credentials from cache...
+-&gt; Done.</code></pre>
 <p>Debería poder trabajar con GitHub ahora. Si todavía estás realizando la configuración inicial, ahora es un buen momento para pasar a <a href="#push-pull-github">Conectarse a GitHub</a>.</p>
 <p>Continúe leyendo para obtener más información sobre:</p>
 <ul>
@@ -674,7 +674,7 @@ Las URL remotas SSH se ven así <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-fig-alt="Getting an HTTPS or SSH URL from GitHub" data-layout-ncol="2">
+<div class="quarto-layout-panel" data-layout-ncol="2" data-fig-alt="Getting an HTTPS or SSH URL from GitHub">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="img/github-https-url.png" class="img-fluid"></p>
@@ -710,7 +710,7 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 ~/rrr/happy-git-with-r % git remote set-url origin https://github.com/jennybc/happy-git-with-r.git</code></pre>
 <p>Podemos hacer lo mismo desde R usando las funciones de usethis:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $origin</span></span>
 <span><span class="co">#&gt; [1] "https://github.com/jennybc/happy-git-with-r.git"</span></span>
 <span></span>
@@ -734,7 +734,7 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 <span class="header-section-number">9.3</span> Generar un token de acceso personal (PAT)</h2>
 <p>En github.com, suponiendo que haya iniciado sesión, puede administrar sus tokens de acceso personales desde <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a>, también accesible a través de <em>Configuración &gt; Configuración de desarrollador &gt; Tokens de acceso personal</em>. Puedes hacer clic en “Generar nuevo token” aquí o, quizás incluso mejor, puedes ejecutar en R el siguiente código <code>usethis::create_github_token()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_github_token</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_github_token</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>El usethis enfoque lo lleva a un formulario precargado donde hemos preseleccionado algunos alcances recomendados, que puede revisar y ajustar antes de hacer clic en “Generar token”. Al momento de escribir este artículo, los alcances recomendados por este uso son “repo”, “user”, “gist” y “workflow”.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -746,12 +746,12 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 <p>Una vez que esté satisfecho con la <em>Note</em>, <em>Expiration</em> y <em>Scope</em> del token, haga clic en “Generar token”.</p>
 <p>No podrá volver a ver este token, así que no cierre ni salga de esta ventana del navegador hasta que almacene el PAT localmente. Copie el PAT al portapapeles, anticipando lo que haremos a continuación: activar un mensaje que nos permita almacenar el PAT en el almacén de credenciales de Git.</p>
 <p>¡Trate este PAT como una contraseña! ¡Nunca conectes tu PAT a tu código! Una PAT siempre debe recuperarse implícitamente, por ejemplo, del almacén de credenciales de Git. Estamos a punto de ayudarle a almacenar el PAT en un lugar seguro, donde los paquetes de línea de comandos Git, RStudio y R puedan descubrirlo.</p>
-<p>Si usa una aplicación de administración de contraseñas, como 1Password o LastPass (¡muy recomendable!), es posible que desee agregar también esta PAT (y su <em>Nota</em>) a la entrada de GitHub, donde ya está almacenando su nombre de usuario y contraseña. . Almacenar su PAT en el almacén de credenciales de Git es una conveniencia semipersistente, algo así como un caché del navegador o “recordarme” en un sitio web<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> y es posible que necesite volver a ingresar su PAT en el futuro. Podrías decidir aceptar la impermanencia de tu PAT y, si de alguna manera se pierde, simplemente <a href="#sec-regenerate-pat">regenerarás el PAT y lo restaurarás</a>. Si acepta el período de vencimiento predeterminado de 30 días, este es un flujo de trabajo que utilizará con frecuencia de todos modos. Pero si crea tokens duraderos o quiere jugar con las funciones para configurar o borrar sus credenciales de Git, puede resultar útil tener su propio registro de su PAT en un lugar seguro, como 1Password o LastPass.</p>
+<p>Si usa una aplicación de administración de contraseñas, como 1Password (¡muy recomendable!), es posible que desee agregar también esta PAT (y su <em>Nota</em>) a la entrada de GitHub, donde ya está almacenando su nombre de usuario y contraseña. Almacenar su PAT en el almacén de credenciales de Git es una conveniencia semipersistente, algo así como un caché del navegador o “recordarme” en un sitio web<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> y es posible que necesite volver a ingresar su PAT en el futuro. Podrías decidir aceptar la impermanencia de tu PAT y, si de alguna manera se pierde, simplemente <a href="#sec-regenerate-pat">regenerarás el PAT y lo restaurarás</a>. Si acepta el período de vencimiento predeterminado de 30 días, este es un flujo de trabajo que utilizará con frecuencia de todos modos. Pero si crea tokens duraderos o quiere jugar con las funciones para configurar o borrar sus credenciales de Git, puede resultar útil tener su propio registro de su PAT en un lugar seguro, como 1Password.</p>
 </section><section id="sec-store-pat" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-store-pat">
 <span class="header-section-number">9.4</span> Guarde su PAT</h2>
 <p>En este punto, asumo que generó una PAT y la tiene disponible, en una o ambas de estas maneras:</p>
 <ul>
-<li>En un sistema seguro y a largo plazo para almacenar secretos, como 1Password o LastPass</li>
+<li>En un sistema seguro y a largo plazo para almacenar secretos, como 1Password</li>
 <li>Durante los próximos minutos, en una ventana del navegador o en el portapapeles</li>
 </ul>
 <p>Hay un par de formas de ingresar su PAT en la tienda de credenciales de Git:</p>
@@ -772,42 +772,42 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 <p>Si no tiene gitcreds instalado, instálelo a través de <code>install.packages("gitcreds")</code>. Si ha instalado usethis, ya tendrá gitcreds, porque usethis usa gh y gh usa gitcreds.</p>
 <p>Llame a <code><a href="https://gitcreds.r-lib.org/reference/gitcreds_get.html">gitcreds::gitcreds_set()</a></code>. Si aún no tiene una PAT almacenada, se le pedirá que la ingrese. ¡Pegar!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Si ya tiene una credencial almacenada, <code><a href="https://gitcreds.r-lib.org/reference/gitcreds_get.html">gitcreds::gitcreds_set()</a></code> la revela e incluso le permitirá inspeccionarla. Esto le ayuda a decidir si desea conservar la credencial existente o reemplazarla. En caso de duda, opte por una credencial nueva y de buena reputación en lugar de una antigua de origen dudoso.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Your current credentials for <span class="st">'https://github.com'</span>:</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">protocol:</span> https</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">host</span>    : github.com</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">username:</span> PersonalAccessToken</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">password:</span> <span class="op">&lt;</span>-- hidden <span class="at">--</span><span class="op">&gt;</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> What would you like to do<span class="pp">?</span> </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ex">1:</span> Keep these credentials</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> Replace these credentials</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ex">3:</span> See the password / token</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Selection:</span> 2</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing current credentials...</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> gitcreds::gitcreds_set<span class="kw">()</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Your current credentials for <span class="st">'https://github.com'</span>:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">protocol:</span> https</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">host</span>    : github.com</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">username:</span> PersonalAccessToken</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">password:</span> <span class="op">&lt;</span>-- hidden <span class="at">--</span><span class="op">&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> What would you like to do<span class="pp">?</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ex">1:</span> Keep these credentials</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> Replace these credentials</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="ex">3:</span> See the password / token</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ex">Selection:</span> 2</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing current credentials...</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Puede comprobar que ha almacenado una credencial con <code>gitcreds_get()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">gitcreds_get</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">gitcreds_get</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; &lt;gitcreds&gt;</span></span>
 <span><span class="co">#&gt;   protocol: https</span></span>
 <span><span class="co">#&gt;   host    : github.com</span></span>
@@ -816,7 +816,7 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 </div>
 <p>Otras funciones que pueden ayudarle a sentirse seguro acerca de su configuración PAT incluyen:</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -827,17 +827,17 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 <p>Si no tiene las credenciales instaladas, instálelas a través de <code>install.packages("credentials")</code>. Si ha instalado usethis, ya tendrá credenciales, porque usethis usa gert y gert usa credenciales.</p>
 <p>Llame a <code>set_github_pat()</code>. Si aún no tiene una PAT almacenada, se le pedirá que la ingrese. ¡Pegar!</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Si tiene éxito, sus llamadas iniciales (y posteriores) se verán así:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; If prompted for GitHub credentials, enter your PAT in the password field</span></span>
 <span><span class="co">#&gt; Using GITHUB_PAT from Jennifer (Jenny) Bryan (credential helper: osxkeychain)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Otras funciones que pueden ayudarle a sentirse seguro acerca de su configuración PAT incluyen:</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -867,7 +867,7 @@ origin  git@github.com:jennybc/happy-git-with-r.git (push)
 </h4>
 <p>Estas funciones de usethis diagnosticarán este problema:</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -898,11 +898,11 @@ file:C:/Program Files/Git/mingw64/etc/gitconfig manager</code></pre>
 <pre class="console"><code>git config --global credential.helper 'cache --timeout=10000000'</code></pre>
 <p>Es posible que esto aún no haga que su PAT esté disponible para los paquetes R. En este caso, es posible que necesite utilizar el método más antiguo y menos seguro de almacenar su PAT en <code>.Renviron</code>. <code>usethis::edit_r_environ()</code> abre ese archivo para editarlo.</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">edit_r_environ</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">edit_r_environ</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Agrega una línea como esta, pero sustituye tu PAT:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">GITHUB_PAT</span><span class="op">=</span>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">GITHUB_PAT</span><span class="op">=</span>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>¡Asegúrese de que este archivo termine en una nueva línea! La falta de una nueva línea puede provocar una falla silenciosa al cargar los archivos de inicio, lo que puede ser complicado de depurar. Tenga cuidado de que este archivo no se envíe accidentalmente a la nube, p.&nbsp;Google Drive o GitHub.</p>
 <p>Reinicie R para que los cambios en <code>.Renviron</code> surtan efecto.</p>
@@ -1061,8 +1061,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1173,7 +1171,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
