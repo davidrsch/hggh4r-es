@@ -112,6 +112,7 @@ format:
     link-citations: yes
     author-meta: "Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester"
     callout-appearance: simple
+    include-in-header: [ddrsch_script_header.html]
     include-after-body: [ddrsch_script.html]
 
 editor: visual
