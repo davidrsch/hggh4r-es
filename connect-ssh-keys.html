@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>10&nbsp; Configurar claves para SSH – Git y GitHub con R</title>
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -87,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -117,7 +118,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -130,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -730,10 +733,10 @@ exit</code></pre>
 Enter passphrase for /Users/jenny/.ssh/id_ed25519: 
 Identity added: /Users/jenny/.ssh/id_ed25519 (jenny-2020-mbp)</code></pre>
 <p>Si tienes macOS Sierra 10.12.2 y superior, debes hacer una cosa más. Cree un archivo <code>~/.ssh/config</code> con este contenido:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> <span class="pp">*</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> <span class="pp">*</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">AddKeysToAgent</span> yes</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">UseKeychain</span> yes</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">IdentityFile</span> ~/.ssh/id_ed25519</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">IdentityFile</span> ~/.ssh/id_ed25519</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Puedes omitir la línea sobre <code>UseKeychain</code> si no usaste una frase de contraseña. Pero si lo hizo, esto debería almacenar su contraseña <em>persistentemente</em> en el llavero. De lo contrario, tendrás que ingresarlo cada vez que inicies sesión. Hilo útil de StackOverflow: <a href="https://apple.stackexchange.com/questions/48502/how-can-i-permanently-add-my-ssh-private-key-to-keychain-so-it-is-automatically">¿Cómo puedo agregar permanentemente mi clave privada SSH a Keychain para que esté disponible automáticamente para ssh?</a>.</p>
 </section><section id="windows" class="level4" data-number="10.4.3.2"><h4 data-number="10.4.3.2" class="anchored" data-anchor-id="windows">
 <span class="header-section-number">10.4.3.2</span> Windows</h4>
@@ -793,7 +796,7 @@ Agent pid 59566</code></pre>
 <p>La causa principal es la confusión sobre la ubicación de <code>.ssh/</code> en Windows. La idea que tiene R de su directorio de inicio en Windows a menudo difiere de la ubicación predeterminada de los archivos de configuración para Git y ssh, como <code>.ssh/</code>. En sistemas *nix, generalmente coinciden y no hay problema.</p>
 <p>Dos directorios importantes en Windows son el HOME del usuario y el USERPROFILE. R generalmente asocia <code>~</code> con HOME, pero Git y ssh a menudo consultan USERPROFILE para sus archivos de configuración. En mi máquina virtual con Windows 10, veo:</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html">normalizePath</a></span><span class="op">(</span><span class="st">"~"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html">normalizePath</a></span><span class="op">(</span><span class="st">"~"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "C:\\Users\\JennyVM\\Documents"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span></span>
@@ -811,17 +814,17 @@ Agent pid 59566</code></pre>
 <span>  include.dirs <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  all.files <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] ".gitconfig" ".ssh"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; [1] ".gitconfig" ".ssh"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dos soluciones:</p>
 <ul>
 <li>
 <p>Dígale a git2r explícitamente dónde encontrar su clave pública y privada y pase el objeto <code>cred</code> resultante a sus llamadas de git2r.</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cred</span> <span class="op">&lt;-</span> <span class="fu">git2r</span><span class="fu">::</span><span class="fu">cred_ssh_key</span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cred</span> <span class="op">&lt;-</span> <span class="fu">git2r</span><span class="fu">::</span><span class="fu">cred_ssh_key</span><span class="op">(</span></span>
 <span>  publickey <span class="op">=</span> <span class="st">"~/../.ssh/id_rsa.pub"</span>,</span>
 <span>  privatekey <span class="op">=</span> <span class="st">"~/../.ssh/id_rsa"</span></span>
-<span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </li>
 <li>
@@ -831,7 +834,7 @@ Agent pid 59566</code></pre>
 </ul>
 <p>Finalmente, si git2r parece incapaz de obtener su contraseña SSH de ssh-agent, instale el paquete getPass:</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"getPass"</span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"getPass"</span><span class="op">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>y git2r debería abrir una ventana emergente donde puede ingresar su frase de contraseña. Gracias a Ian Lyttle por este consejo.</p>
 <p>Este enlace proporciona una excelente explicación de la incertidumbre sobre dónde se encuentran <code>.ssh/</code> y <code>.gitconfig</code> del usuario en Windows: <a href="https://www.onwebsecurity.com/configuration/%20git-on-windows-ubicaci%C3%B3n-del-archivo-de-configuraci%C3%B3n-global.html">git en Windows - ubicación de los archivos de configuración</a>. En pocas palabras: coloque su configuración y claves donde su herramienta principal espera que estén y cree enlaces simbólicos para ayudar a otras herramientas a encontrar estas cosas.</p>
@@ -850,15 +853,15 @@ Agent pid 59566</code></pre>
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -963,13 +966,14 @@ Agent pid 59566</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

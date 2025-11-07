@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>34&nbsp; Hacer que un repositorio de GitHub sea navegable – Git y GitHub con R</title>
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -87,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -117,7 +118,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -130,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -635,32 +638,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">34.4</span> R Markdown</h2>
 <p>¿Qué significa esto para los archivos R Markdown? <strong>Mantener Markdown intermedio. O solo renderizar en Markdown.</strong> Confirme tanto <code>foo.Rmd</code> como <code>foo.md</code>, incluso si elige <code>.gitignore</code> el producto final, p.e. <code>foo.html</code> o <code>foo.pdf</code> o <code>foo.docx</code>. Desde <a href="https://github.com/github/markup/pull/343">septiembre de 2014</a>, GitHub representa muy bien los archivos R Markdown, como Markdown, y con resaltado de sintaxis adecuado, lo cual es genial. Pero, por supuesto, los bloques de código simplemente permanecen ahí sin ejecutarse, por lo que mi consejo sobre mantener Markdown sigue siendo válido.</p>
 <p>Si su formato de salida de destino no es Markdown, desea <a href="https://gist.github.com/jennybc/402761e30b9be8023af9">YAML frontmatter</a> eso se parece a esto para <code>.Rmd</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Something fascinating"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jenny Bryan"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"`r format(Sys.Date())`"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">keep_md</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>o así para <code>.R</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' title: "Something fascinating"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' author: "Jenny Bryan"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' date: "`r format(Sys.Date())`"</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' output:</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#'   html_document:</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#'     keep_md: TRUE</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>La parte <code>keep_md: TRUE</code> dice que se mantenga el Markdown intermedio. En RStudio, al editar <code>.Rmd</code>, haga clic en el engranaje junto a “Knit HTML” para obtener ayuda sobre la creación de YAML.</p>
 <p>Desde 2016, <code>rmarkdown</code> ofrece un <a href="http://rmarkdown.rstudio.com/github_document_format.html">formato de salida personalizado para Markdown con sabor a GitHub, <code>github_document</code></a>. Lea acerca de <a href="usage-rmd-and-github.html">flujos de trabajo de R Markdown</a> para ejemplos explícitos de cómo utilizar esto. Si Markdown es su formato de salida de destino, su <a href="https://gist.github.com/jennybc/402761e30b9be8023af9">YAML puede ser aún más simple</a> y verse así por <code>.Rmd</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>o así para <code>.R</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' output: github_document</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' ---</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Para obtener un documento rápido e independiente que no encaje perfectamente en un repositorio o proyecto (todavía), conviértalo en <a href="https://gist.github.com">Gist</a>. Ejemplo: <a href="https://gist.github.com/hadley/820f09ded347c62c2864">consejos de Hadley Wickham sobre lo que debe hacer para convertirse en científico de datos</a>. Los gists pueden contener varios archivos, por lo que aún puedes proporcionar el script R o la fuente R Markdown <strong>y</strong> el Markdown resultante, como lo hice en este artículo de <a href="https://gist.github.com/jennybc/04b71bfaaf0f88d9d2eb">Consejos para tabulación cruzada obtenidos en Twitter</a>. He recopilado <a href="https://gist.github.com/jennybc/402761e30b9be8023af9">ejemplos YAML</a> para todos los escenarios anteriores en esencia.</p>
 </section><section id="readme.md" class="level2" data-number="34.5"><h2 data-number="34.5" class="anchored" data-anchor-id="readme.md">
 <span class="header-section-number">34.5</span> <code>README.md</code>
@@ -731,9 +734,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Cuando hace clic en el botón Knit en RStudio, en realidad es Pandoc el que realiza la conversión final a formatos HTML o Microsoft Word (<code>.docx</code>). Si está dispuesto a utilizar la línea de comandos, puede realizar la conversión opuesta (por ejemplo, <code>.docx</code> a <code>.md</code>), normalmente conservando características como encabezados, tablas, ecuaciones e incluso figuras.</p>
 <p>Como algunos repetitivos, ejecutándose en Windows PowerShell <code>pandoc --extract-media .\media  -f docx .\example.docx -t markdown_github -o example_image.md</code> convierte un documento de Word llamado <code>example.docx</code> para marcar y extrae las imágenes en un directorio que corresponde a una ruta de archivo en el documento <code>example.md</code> recién creado. Una lista completa de formatos admitidos y códigos de ejemplo para conversiones están disponibles en https://pandoc.org/.</p>
 <p>También puede realizar conversiones simples a rebajas con sabor a GitHub desde diferentes tipos de rebajas (Pandoc admite <code>markdown_mmd</code>, <code>markdown_php_extra</code> y <code>markdown_strict</code>) desde dentro de RStudio. Para hacerlo, debe cambiar el nombre del archivo cambiando la extensión (por ejemplo, de <code>foo.md</code> a <code>foo.Rmd</code>), luego abra el archivo renombrado en RStudio y agregue el siguiente texto en la parte superior del documento.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> github_document</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Luego puede hacer clic en “Knit” y luego en “Knit to github document” para realizar la conversión. Consulte <a href="@sec-output-format">Formato de salida</a> para obtener más detalles sobre cómo controlar los formatos de salida con el frontmatter YAML.</p>
 </section><section id="vincular-a-un-archivo-zip-de-su-repositorio" class="level2" data-number="34.12"><h2 data-number="34.12" class="anchored" data-anchor-id="vincular-a-un-archivo-zip-de-su-repositorio">
 <span class="header-section-number">34.12</span> Vincular a un archivo ZIP de su repositorio</h2>
@@ -762,15 +765,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -875,13 +878,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

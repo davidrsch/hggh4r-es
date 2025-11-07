@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -92,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -132,7 +133,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -145,7 +148,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -637,11 +640,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Problema: desea importar cambios desde el upstream, pero ha realizado algunos trabajos nuevos localmente desde la última vez que los realizó. Esto suele surgir porque <a href="workflows-push-rejected.html">lo que realmente quieres hacer es <em>enviar</em></a>, pero Git no te lo permitirá hasta que incorpores por primera vez los cambios anteriores.</p>
 <p>En aras de la simplicidad, supongamos que estamos tratando con la rama <code>upstream</code> y la remota se llama <code>origin</code>.</p>
 <p>Historial reciente de confirmaciones de <code>origin/main</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--C</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--C</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Historial de confirmaciones recientes de la rama <code>upstream</code> local:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--D</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--D</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>o tal vez</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--</span><span class="er">(</span><span class="ex">cambios</span> no confirmados<span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A--B--</span><span class="er">(</span><span class="ex">cambios</span> no confirmados<span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Su objetivo: obtener la confirmación <code>C</code> en su rama local, manteniendo al mismo tiempo el trabajo en la confirmación <code>D</code> o sus cambios no confirmados.</p>
 <ul>
 <li>El estado local es <code>A--B--(cambiosnoconfirmados)</code>: puede usar <code>git stash</code>. O simplemente podrías confirmar para simplificar tu vida (ver el siguiente punto).</li>
@@ -661,16 +664,16 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
 <li>Los archivos afectados por su trabajo local tienen CERO superposición con los archivos afectados por los cambios que necesita importar del control remoto. ¡Tú también estás de suerte! Puedes simplemente <code>git pull</code>.</li>
 </ul>
 <p>Resumen de estos felices escenarios de <code>git pull</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>                 <span class="ex">Remote:</span> A--B--C</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>                 <span class="ex">Remote:</span> A--B--C</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Local</span> before <span class="st">'git pull'</span>: A--B--<span class="er">(</span><span class="ex">cambiosnoconfirmados</span><span class="kw">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after <span class="st">'git pull'</span>: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfirmados</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after <span class="st">'git pull'</span>: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfirmados</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Lo que realmente sucedió aquí es que <code>git pull</code> resultó en una <em>fusión rápida</em>, es decir, colocamos la confirmación <code>C</code> justo al final de su historial. Este también sería el caso en la situación más simple en la que el historial local reciente fuera simplemente <code>A--B</code>, es decir, no se hubiera agregado ningún trabajo local desde la última sincronización con <code>origin/main</code>.</p>
 </section>
 <section id="git-stash-funciona-a-veces" class="level3" data-number="29.1.2">
 <h3 data-number="29.1.2" class="anchored" data-anchor-id="git-stash-funciona-a-veces"><span class="header-section-number">29.1.2</span> <code>git stash</code> funciona, a veces</h3>
 <p>Si sus cambios afectan un archivo (<code>foo.R</code> en el ejemplo siguiente) que también se modificó en la confirmación <code>C</code>, no puede <code>git pull</code>. No está de más intentarlo, pero fallarás y se verá así:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Enumerating objects: 5, done.</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">5/5</span><span class="kw">)</span><span class="ex">,</span> done.</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">2/2</span><span class="kw">)</span><span class="ex">,</span> done.</span>
@@ -682,7 +685,7 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">error:</span> Your local changes to the following files would be overwritten by merge:</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">foo.R</span></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">Please</span> commit your changes or stash them before you merge.</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Aborting</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Aborting</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>¿Ahora que? En primer lugar, debe salvaguardar los cambios locales guardándolos o confirmándolos. (Yo personalmente elegiría confirmar y ejecutar un flujo de trabajo descrito en <a href="#sec-git-pull-with-local-commits" class="quarto-xref"><span>Sección 29.2</span></a>.)</p>
 <p>No soy un gran admirador de <code>git stash</code>; Creo que normalmente es mejor aprovechar todas las oportunidades posibles para solidificar sus habilidades en torno a conceptos y operaciones centrales, por ejemplo, confirmar, posiblemente en una rama. Pero si desea utilizar <code>git stash</code>, esta oportunidad es la mejor posible.</p>
 <p><code>git stash</code> es una forma de almacenar temporalmente algunos cambios para eliminarlos. Ahora puedes hacer otra cosa, sin mucho problema. En nuestro caso, “hacer algo más” es obtener los cambios ascendentes con un simple y agradable <code>git pull</code>. Luego vuelves a aplicar, eliminas el stash y continúas donde lo dejaste.</p>
@@ -692,11 +695,11 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
 <li><a href="https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">7.3 Herramientas Git: almacenamiento y limpieza</a> En <a href="https://git-scm.com/book/en/v2">Git Pro</a>.</li>
 </ul>
 <p>Este es el mejor escenario para “stash, pull, unstash” en el ejemplo anterior:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash save</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash save</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> stash pop</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Y aquí está el resultado de nuestro ejemplo:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Saved</span> working directory and index state WIP on main: db046b4 Merge branch <span class="st">'main'</span>of github.com:jennybc/ethel</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
@@ -717,19 +720,19 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="ex">modified:</span>   foo.R</span>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Dropped</span> refs/stash@{0} <span class="er">(</span><span class="ex">012c4dcd3a4c3af6757c4c3ca99a9eaeff1eb2a4</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">Dropped</span> refs/stash@{0} <span class="er">(</span><span class="ex">012c4dcd3a4c3af6757c4c3ca99a9eaeff1eb2a4</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Así es como se ve el éxito. Has logrado esto:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Local</span> before: A--B--<span class="er">(</span><span class="ex">cambiosnoconfrimados</span><span class="kw">)</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfrimados</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfrimados</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Como se indicó anteriormente, acabamos de disfrutar de una combinación de avance rápido, posible al ocultar temporalmente y luego desbloquear los cambios locales no confirmados.</p>
 </section>
 <section id="git-stash-con-conflictos" class="level3" data-number="29.1.3">
 <h3 data-number="29.1.3" class="anchored" data-anchor-id="git-stash-con-conflictos"><span class="header-section-number">29.1.3</span> <code>git stash</code> con conflictos</h3>
 <p>Si sus cambios locales se superponen con los cambios que está realizando, obtendrá un conflicto de fusión de <code>git stash pop</code>. Ahora tienes que hacer algunos trabajos de recuperación. En este caso, no has ganado nada al usar <code>git stash</code> en primer lugar, lo que explica mi falta general de entusiasmo por <code>git stash</code>.</p>
 <p>Aquí se explica cómo ejecutar el flujo de trabajo <code>git stash</code> en nuestro ejemplo, frente a conflictos (basado en <a href="https://stackoverflow.com/a/27382210/2825349">esta respuesta de Stack Overflow</a>):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Saved</span> working directory and index state WIP on main: 2d33a6f Back to 5</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
@@ -740,20 +743,20 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash pop</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">Auto-merging</span> foo.R</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ex">CONFLICT</span> <span class="er">(</span><span class="ex">content</span><span class="kw">)</span><span class="bu">:</span> Merge conflict in foo.R</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ex">CONFLICT</span> <span class="er">(</span><span class="ex">content</span><span class="kw">)</span><span class="bu">:</span> Merge conflict in foo.R</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>En este punto, debes resolver el conflicto de fusión <a href="git-branches.html#sec-fusion-conflicts" class="quarto-xref"><span>Sección 22.4</span></a>. Literalmente, en cada lugar de conflicto, elija una versión u otra (anticipada o oculta) o cree un híbrido usted mismo. Retire todos los marcadores insertados para delimitar los conflictos. Guarde.</p>
 <p>Dado que <code>git stash pop</code> no funcionó correctamente, debemos restablecer manualmente <a href="workflows-repeated-amend.html#sec-manually-reset" class="quarto-xref"><span>Sección 27.3</span></a> y eliminar el stash para finalizar.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git reset</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git reset</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Unstaged</span> changes after reset:</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">M</span>       foo.R</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash drop</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Dropped</span> refs/stash@{0} <span class="er">(</span><span class="ex">7928db50288e9b4d934803b6b451a000fd7242ed</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Dropped</span> refs/stash@{0} <span class="er">(</span><span class="ex">7928db50288e9b4d934803b6b451a000fd7242ed</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Uf, hemos terminado. Hemos logrado esto:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Local</span> before: A--B--<span class="er">(</span><span class="ex">cambiosnoconfirmados</span><span class="kw">)</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfirmados*</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--<span class="er">(</span><span class="ex">cambiosnoconfirmados*</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>El asterisco en <code>cambiosnoconfirmados*</code> indica que sus cambios no confirmados ahora podrían reflejar los ajustes realizados cuando resolvió los conflictos.</p>
 </section>
 </section>
@@ -765,31 +768,31 @@ El estado local es <code>A--B--D</code>.</p>
 <h3 data-number="29.2.1" class="anchored" data-anchor-id="importar-buscar-y-fusionar"><span class="header-section-number">29.2.1</span> Importar (buscar y fusionar)</h3>
 <p>La opción más sencilla es recuperar las confirmaciones desde arriba y fusionarlas, que es lo que hace <code>git pull</code>. Esta es una buena opción si eres nuevo en Git. Esto lleva a una historia más complicada, pero cuando eres nuevo, esta es la menor de tus preocupaciones. Fúndete, sé feliz y continúa.</p>
 <p>Aquí está el mejor caso, la versión sin conflictos de fusión de <code>git pull</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span> PROBABLEMENTE <span class="ex">SERÁS</span> ENVIADO A UN EDITOR AQUÍ RE: ¡MENSAJE DE COMUNICACIÓN DE FUSIÓN! <span class="op">&gt;</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Merge</span> made by the <span class="st">'recursive'</span> strategy.</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">README.md</span> <span class="kw">|</span> <span class="ex">4</span> ++--</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 2 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span><span class="ex">,</span> 2 deletions<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 2 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span><span class="ex">,</span> 2 deletions<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dependiendo de su versión de Git, su configuración y su uso de una GUI, es posible que deba confirmar/editar un mensaje de confirmación para la confirmación de fusión.</p>
 <p>¿O qué pasa si las cosas no van tan bien? Si la confirmación <code>C</code> (en el control remoto) y la confirmación <code>D</code> (local) tienen cambios en las mismas partes de uno o más archivos, es posible que Git no pueda fusionarse automáticamente y obtendrá conflictos de fusión. Se verá algo como esto:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Auto-merging</span> foo.R</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">CONFLICT</span> <span class="er">(</span><span class="ex">content</span><span class="kw">)</span><span class="bu">:</span> Merge conflict in foo.R</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Automatic</span> merge failed<span class="kw">;</span> <span class="ex">fix</span> conflicts and then commit the result.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Automatic</span> merge failed<span class="kw">;</span> <span class="ex">fix</span> conflicts and then commit the result.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Debes resolver estos conflictos <a href="git-branches.html#sec-fusion-conflicts" class="quarto-xref"><span>Sección 22.4</span></a>. Literalmente, en cada lugar de conflicto, elija una versión u otra (ascendente o local) o cree un híbrido usted mismo. Retire todos los marcadores insertados para delimitar los conflictos. Guarde.</p>
 <p>Marque el archivo afectado <code>foo.R</code> como resuelto mediante <code>git add</code> y haga un <code>git commit</code> explícito para finalizar esta fusión.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git add foo.R</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git add foo.R</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git commit</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> 20b297b] Merge branch <span class="st">'main'</span> of github.com:jennybc/ethel</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[main</span> 20b297b] Merge branch <span class="st">'main'</span> of github.com:jennybc/ethel</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Nuevamente, no se sorprenda si, durante el <code>git commit</code>, se encuentra en un editor, confirmando/editando el mensaje de confirmación para la confirmación de fusión.</p>
 <p>Hemos logrado esto:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Local</span> before: A--B--D</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--D--<span class="er">(</span><span class="ex">confirmación</span> de fusión<span class="kw">)</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">\_C_/</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                  <span class="ex">\_C_/</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="importar-y-rebase" class="level3" data-number="29.2.2">
 <h3 data-number="29.2.2" class="anchored" data-anchor-id="importar-y-rebase"><span class="header-section-number">29.2.2</span> Importar y rebase</h3>
@@ -800,10 +803,10 @@ First, rewinding head to replay your work on top of it...
 Applying: Take max</code></pre>
 <p>Tenga en cuenta que NO lo enviaron a un editor para manipular el mensaje de confirmación para la confirmación de fusión, ¡porque no hay confirmación de fusión! Ésta es la belleza del rebase.</p>
 <p>Hemos logrado esto:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>      <span class="ex">Remote:</span> A--B--C</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Local</span> before: A--B--D</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--D</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">Local</span> after: A--B--C--D</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Es como si sacáramos el trabajo ascendente en la confirmación <code>C</code> y luego hiciéramos el trabajo local incorporado en la confirmación <code>D</code>. No tenemos confirmaciones de fusión desordenadas y un historial lineal. ¡Lindo!</p>
 <p>La mala noticia: al igual que con <code>git pull</code> simple, todavía es posible tener conflictos de fusión con <code>git pull --rebase</code>. Si tiene varias confirmaciones locales, incluso puede encontrarse resolviendo conflictos una y otra vez, ya que estas confirmaciones se reproducen secuencialmente. Por lo tanto, esto es más adecuado para usuarios de Git más experimentados y en situaciones donde los conflictos son poco probables (en realidad, tienden a estar correlacionados).</p>
 <p>En este punto, si intentas hacer <code>git pull --rebase</code> y te atascas en conflictos de fusión, te recomiendo <code>git rebase --abort</code> para retroceder. Por ahora, simplemente siga una estrategia más sencilla.</p>
@@ -841,15 +844,15 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -955,13 +958,14 @@ El estado local es <code>A--B--(cambiosnoconfirmados)</code>.</p>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

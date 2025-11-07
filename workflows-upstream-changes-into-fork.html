@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>32&nbsp; Importar cambios de upstream en una bifurcación – Git y GitHub con R</title>
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -87,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -117,7 +118,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -130,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -620,28 +623,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">32.1.1</span> Lista tus controles remotos</h3>
 <p>Inspeccionemos <a href="git-remotes.html">los controles remotos actuales</a> para su repositorio local.</p>
 <p>Puedes comprobar esto con la línea de comando Git en el shell (<a href="shell.html" class="quarto-xref"><span>Apéndice A</span></a>):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Queremos ver algo como esto:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Información comparable está disponible en R con <code>usethis::git_remotes()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $origin</span></span>
 <span><span class="co">#&gt; [1] "https://github.com/YOU/REPO.git"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $upstream</span></span>
-<span><span class="co">#&gt; [1] "https://github.com/OWNER/repo.git"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; [1] "https://github.com/OWNER/repo.git"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Si solo tiene un control remoto, probablemente <code>origin</code>, le recomiendo que modifique la configuración del control remoto. Pero primero comprobaremos otra cosa.</p>
 </section><section id="ver-la-rama-de-seguimiento-ascendente" class="level3" data-number="32.1.2"><h3 data-number="32.1.2" class="anchored" data-anchor-id="ver-la-rama-de-seguimiento-ascendente">
 <span class="header-section-number">32.1.2</span> Ver la rama de seguimiento ascendente</h3>
 <p>Idealmente, su rama <code>main</code> local tiene <code>upstream/main</code> como su rama de seguimiento ascendente. Incluso si tiene un control remoto <code>upstream</code> configurado correctamente, vale la pena comprobarlo. Si su rama predeterminada tiene una rama distinta a <code>main</code>, sustitúyala según corresponda.</p>
 <p>En el shell, con la rama predeterminada seleccionada, <code>git branch -vv</code> debería revelar que <code>upstream/main</code> es la rama de seguimiento ascendente:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/some/repo/</span> % git branch <span class="at">-vv</span>                   </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> main 2739987 <span class="pp">[</span><span class="ss">upstream/main</span><span class="pp">]</span> Some commit message</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/some/repo/</span> % git branch <span class="at">-vv</span>                   </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> main 2739987 <span class="pp">[</span><span class="ss">upstream/main</span><span class="pp">]</span> Some commit message</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si, en cambio, ve <code>origin/main</code>, le recomiendo que reconfigure la rama de seguimiento.</p>
 <p>Toda esta información sobre controles remotos y sucursales también se incluye en la rica información reportada con <code>usethis::git_sitrep()</code>.</p>
 </section><section id="repara-o-completa-la-configuración-de-tu-repositorio" class="level3" data-number="32.1.3"><h3 data-number="32.1.3" class="anchored" data-anchor-id="repara-o-completa-la-configuración-de-tu-repositorio">
@@ -655,12 +658,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Asegúrate de estar en la rama predeterminada, p.&nbsp;<code>main</code>, y que su “árbol de trabajo esté limpio”. Primero, asegurémonos de que nuestra información en el control remoto <code>upstream</code> esté actualizada:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>git status</code> ahora debería mostrar algo como:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">On</span> branch main</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/main'</span>.</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working tree clean</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working tree clean</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si ha modificado archivos, debe descartar esos cambios o crear una nueva rama y confirmar los cambios allí para guardarlos.</p>
 <p>También está bien si ves algo como esto:</p>
 <pre><code>Your branch is behind 'upstream/main' by 2 commits, and can be fast-forwarded.</code></pre>
@@ -675,20 +678,20 @@ and have 1 and 1 different commits each, respectively.</code></pre>
 <span class="header-section-number">32.3</span> Opción de sincronización 1: importe los cambios desde <code>upstream</code> y luego envíelos a <code>origin</code>
 </h2>
 <p>Ahora estamos listos para incorporar los cambios que no tenemos del repositorio fuente <code>DUEÑO/REPO</code> a nuestra copia local.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Esto dice: “importe los cambios del control remoto conocido como <code>upstream</code> a la rama <code>main</code> de mi repositorio local”. Estoy siendo explícito sobre el control remoto (<code>upstream</code>) y la rama (<code>main</code>) en este caso, tanto para hacerlo más claro como para que este comando sea robusto para configuraciones de Git a nivel de repositorio y de usuario. Pero si ha seguido nuestras recomendaciones de configuración, no es necesario que sea tan explícito.</p>
 <p>También <strong>recomiendo encarecidamente</strong> usar el indicador <code>--ff-only</code> en este caso, para que también diga “si hice mis propias confirmaciones con <code>main</code>, por favor oblígueme a enfrentar este problema AHORA”. Así es como se ve si no es posible realizar una combinación de avance rápido:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull upstream main <span class="at">--ff-only</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull upstream main <span class="at">--ff-only</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">From</span> github.com:OWNER/REPO</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">*</span> branch              main     <span class="at">-</span><span class="op">&gt;</span> FETCH_HEAD</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> Not possible to fast-forward, aborting.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> Not possible to fast-forward, aborting.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ver <a href="#sec-touched-main">Um, ¿qué pasa si toco <code>main</code>?</a> para volver al camino feliz.</p>
 <p>Suponiendo que haya tenido éxito con <code>git pull</code>, el siguiente paso es opcional y muchas personas que tienen facilidad con Git no se molestan.</p>
 <p>Si sigues mi consejo de <a href="workflows-fork-and-clone.html#sec-fork-dont-touch-main">nunca trabajar en <code>main</code> de una bifurcación</a>, entonces el estado de la rama <code>main</code> en tu bifurcación <code>TU/REPO</code> técnicamente no importa . Nunca realizará una solicitud de cambio desde <code>main</code> y hay formas de establecer la base correcta para las ramas y solicitudes de cambio que cree.</p>
 <p>Sin embargo, si su comprensión de todos estos conceptos de Git es, en el mejor de los casos, escasa, puede resultar útil intentar mantener las cosas simples, ordenadas y sincronizadas.</p>
 <p>Siéntase libre de enviar el estado recientemente actualizado de <code>main</code> local a su bifurcación <code>TU/REPO</code> y disfrute de la satisfacción de estar “atrapado” con <code>DUEÑO/REPO</code>, tanto en su bifurcación remota como en su repositorio local.</p>
 <p>En el shell:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si ha seguido nuestros consejos de configuración, realmente necesita ser así de explícito para poder enviar al <code>origin</code> (no al <code>upstream</code>).</p>
 </section><section id="opción-de-sincronización-2-sincroniza-tu-bifurcación-en-github-importe-los-cambios-del-origen-al-repositorio-local" class="level2" data-number="32.4"><h2 data-number="32.4" class="anchored" data-anchor-id="opción-de-sincronización-2-sincroniza-tu-bifurcación-en-github-importe-los-cambios-del-origen-al-repositorio-local">
 <span class="header-section-number">32.4</span> Opción de sincronización 2: sincroniza tu bifurcación en GitHub, importe los cambios del <code>origen</code> al repositorio local</h2>
@@ -708,37 +711,37 @@ and have 1 and 1 different commits each, respectively.</code></pre>
 <p>Si ha realizado confirmaciones en la rama predeterminada de su bifurcación, lo cual <a href="workflows-fork-and-clone.html#sec-fork-dont-touch-main">desaconsejamos encarecidamente</a>, esto puede resultar en una confirmación de fusión (o incluso conflictos de fusión). Si está sufriendo debido a las confirmaciones que realizó en <code>main</code> y está más allá de la ayuda que describimos a continuación, considere eliminar su bifurcación y repositorio local y comenzar de nuevo con <a href="workflows-fork-and-clone.html">Bifurcar y clonar</a>. Vive y aprende.</p>
 <p>Una vez que haya sincronizado exitosamente la rama predeterminada de <code>TU/REPO</code> con la rama predeterminada de <code>PROPIETARIO/REPO</code>, probablemente desee hacer lo mismo con su repositorio local. Dado que están sincronizados, puede importarlos desde <code>upstream</code> u <code>origin</code>.</p>
 <p>En el shell, con la rama predeterminada desprotegida, ejecute uno de estos:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main <span class="at">--ff-only</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main <span class="at">--ff-only</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si ha seguido nuestros consejos de configuración, en realidad no necesita especificar el control remoto y la rama, porque esta rama está configurada para importar desde <code>upstream</code>. Por las mismas razones que antes, es una buena idea incluir la opción <code>--ff-only</code>. Si ha realizado confirmaciones locales con <code>main</code>, esto hará surgir el problema, que se resuelve en la siguiente sección.</p>
 </section><section id="sec-touched-main" class="level2" data-number="32.5"><h2 data-number="32.5" class="anchored" data-anchor-id="sec-touched-main">
 <span class="header-section-number">32.5</span> Um, ¿qué pasa si toco <code>main</code>?</h2>
 <p>¡Te dije que no lo hicieras!</p>
 <p>Pero bueno, aquí estamos.</p>
 <p>Imaginemos que este es el estado de <code>main</code> (o como se llame la rama predeterminada) en el repositorio fuente <code>PROPIETARIO/REPO</code>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>y este es el estado de la rama <code>main</code> en su copia local:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> X <span class="at">--</span> Y <span class="at">--</span> Z</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> X <span class="at">--</span> Y <span class="at">--</span> Z</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Las dos historias coinciden, hasta confirmar o indicar <code>C</code>, luego divergen.</p>
 <p>Si desea conservar el trabajo en las confirmaciones <code>X</code>, <code>Y</code> y <code>Z</code>, cree una nueva rama ahora mismo, con la sugerencia en <code>Z</code>, así, pero sustituyendo el nombre de su rama preferida:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-great-innovations</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-great-innovations</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Esto protege sus grandes innovaciones de las confirmaciones <code>X</code>, <code>Y</code> y <code>Z</code>. Ahora revisa <code>main</code> nuevamente:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ahora supongo que has conservado el trabajo en <code>X</code>, <code>Y</code> y <code>Z</code> (con una rama) o has decidido dejarlo ir.</p>
 <p>Haga un restablecimiento completo de la rama <code>main</code> para <code>C</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> C</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> C</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Tendrás que descubrir cómo transmitir <code>C</code> en Git-speak. Especifíquelo en relación con <code>HEAD</code> o proporcione el SHA. Consulte <a href="workflows-see-the-past.html" class="quarto-xref"><span>Capítulo 30</span></a> para obtener más ayuda.</p>
 <!-- TODO: come back when there is content about referring to previous states. -->
 <p>El historial de su rama <code>main</code> ahora es compatible con su historial en <code>PROPIETARIO/REPO</code>. Las instrucciones anteriores para importar cambios desde <code>upstream</code> ahora deberían funcionar. Un avance rápido debería tener éxito.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull upstream main <span class="at">--ff-only</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Y ahora su historial local para <code>main</code> debería coincidir con el del repositorio de origen:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si eliges crear una sucursal con tu trabajo, también la tendrás localmente:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F <span class="er">(</span><span class="ex">main</span><span class="kw">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D <span class="at">--</span> E <span class="at">--</span> F <span class="er">(</span><span class="ex">main</span><span class="kw">)</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                   <span class="dt">\</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                    <span class="ex">--</span> X <span class="at">--</span> Y <span class="at">--</span> Z <span class="er">(</span><span class="ex">my-great-innovations</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                    <span class="ex">--</span> X <span class="at">--</span> Y <span class="at">--</span> Z <span class="er">(</span><span class="ex">my-great-innovations</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si envió su historial alternativo (con confirmaciones <code>X</code>, <code>Y</code> y <code>Z</code>) a su bifurcación <code>TU/REPO</code> y le gusta mantener todo sincronizado, también necesitará forzar el envío de <code>main</code> al control remoto <code>origin</code>:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> origin main</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Sin embargo, realmente no nos gusta hablar de empujes forzados en Happy Git. Aquí solo lo hacemos porque estamos hablando de una bifurcación, que es bastante fácil de reemplazar si algo sale mal.</p>
 
 
@@ -747,15 +750,15 @@ and have 1 and 1 different commits each, respectively.</code></pre>
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -860,13 +863,14 @@ and have 1 and 1 different commits each, respectively.</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

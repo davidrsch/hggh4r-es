@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,14 +90,15 @@ div.csl-indent {
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,7 +113,7 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -152,7 +153,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -165,7 +168,7 @@ div.csl-indent {
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -685,20 +688,20 @@ nothing to commit, working tree clean</code></pre>
 <section id="ponte-a-trabajar" class="level3" data-number="27.2.2">
 <h3 data-number="27.2.2" class="anchored" data-anchor-id="ponte-a-trabajar"><span class="header-section-number">27.2.2</span> Ponte a trabajar</h3>
 <p>Imaginemos que comenzamos en la confirmación C, la confirmación anterior es B y, antes de eso, A:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span> <span class="at">--</span> A <span class="at">--</span> B <span class="at">--</span> C</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Da un pequeño paso hacia tu objetivo. Vuelva a comprobar que su proyecto “funciona”.</p>
 <p>Realice esos cambios y realice una confirmación con el mensaje “WIP”, que significa “trabajo en progreso”. Haz esto en RStudio o en el shell. (<a href="shell.html" class="quarto-xref"><span>Apéndice A</span></a>):</p>
 <pre class="console"><code>git add ruta/al/archivo/cambiado
 git commit -m "WIP"</code></pre>
 <p>El mensaje puede ser cualquier cosa, pero “WIP” es una convención común. Si lo usa, cada vez que regrese a un proyecto donde el mensaje de confirmación más reciente es “WIP”, sabrá que probablemente estaba en medio de algo. Si presiona un commit “WIP”, a propósito o por error, le indica a otras personas que es posible que se produzcan más commits.</p>
 <p>Tu historial ahora se ve así:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> WIP<span class="pp">*</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> WIP<span class="pp">*</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>¡No envies!</strong> El <code>*</code> anterior significa una confirmación que existe solo en tu repositorio local, no (todavía) en GitHub. Si llamaste a <code>git status</code>, verías algo como “Your branch is ahead of ‘origin/main’ by 1 commit.”, que también se muestra en el panel Git de RStudio.</p>
 <p>Trabaja un poco más. Vuelva a verificar que su proyecto aún esté en un estado funcional. Organiza y confirma nuevamente, pero esta vez <strong>modifica</strong> tu confirmación anterior. RStudio ofrece una casilla de verificación para “Amend previous commit” o en el shell:</p>
 <pre class="console"><code>git commit --amend --no-edit</code></pre>
 <p>La parte <code>--no-edit</code> conserva el mensaje de confirmación actual de “WIP”.</p>
 <p><strong>¡No envies!</strong> Tu historial ahora se ve así:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> WIP<span class="pp">*</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> WIP<span class="pp">*</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>pero los cambios asociados con la confirmación <code>WIP*</code> ahora representan sus dos últimas confirmaciones, es decir, todos los cambios acumulados desde el estado C.</p>
 <p>Sigue así.</p>
 <p>Digamos que finalmente has logrado tu objetivo. Una última vez, verifique que su proyecto sea funcional y se encuentre en un estado que esté dispuesto a compartir con otros.</p>
@@ -706,7 +709,7 @@ git commit -m "WIP"</code></pre>
 <pre class="console"><code>git commit --amend -m "Implementa una característica increíble; cierra #43"
 git push</code></pre>
 <p>Tu historial, y el de GitHub, se ve así:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">A</span> <span class="at">--</span> B <span class="at">--</span> C <span class="at">--</span> D</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Hasta donde el mundo sabe, implementaste la función de una sola vez. Pero tenías que trabajar en la tarea de forma gradual, con la tranquilidad de que nunca podrías romper las cosas.</p>
 </section>
 </section>
@@ -766,15 +769,15 @@ Wickham, Hadley. 2015. <em>R Packages</em>. 1st ed. O’Reilly Media, Inc.
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -880,13 +883,14 @@ Wickham, Hadley. 2015. <em>R Packages</em>. 1st ed. O’Reilly Media, Inc.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

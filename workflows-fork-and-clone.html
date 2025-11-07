@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester">
 <title>31&nbsp; Bifurcar y clonar – Git y GitHub con R</title>
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-19ceff77aef8a6da3c24ed7e0a211605.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-27b374869513bf944b27497b3976d058.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -87,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
+    "search-no-results-text": "No se han encontrado resultados",
     "search-matching-documents-text": "documentos encontrados",
     "search-copy-link-title": "Copiar el enlace en la búsqueda",
     "search-hide-matches-text": "Ocultar resultados adicionales",
@@ -117,7 +118,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Git y GitHub con R</a> 
         <div class="sidebar-tools-main">
@@ -130,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hgitwithres">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://github.com/davidrsch/hggh4r-es">
             Traducción
             </a>
           </li>
@@ -652,13 +655,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Utilice el gran botón verde “Code” para obtener la URL de <code>DUEÑO/REPO</code> en su portapapeles. Sea intencional al copiar la URL HTTPS o SSH.</p>
 <p>Puede configurar el control remoto <code>upstream</code> con la línea de comando Git, usethis o RStudio.</p>
 <p>A continuación se explica cómo utilizar la línea de comandos de Git en un shell:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/OWNER/REPO.git</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream https://github.com/OWNER/REPO.git</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>usethis::use_git_remote()</code> le permite configurar un control remoto Git. Ejecute esto en R:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git_remote</span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git_remote</span><span class="op">(</span></span>
 <span>  name <span class="op">=</span> <span class="st">"upstream"</span>,</span>
 <span>  url <span class="op">=</span> <span class="st">"https://github.com/DUEÑO/REPO.git"</span></span>
-<span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Finalmente, puedes hacer esto en RStudio, aunque parece un poco extraño. Haga clic en “New Branch” en el panel de Git (“dos cuadros morados y un cuadrado blanco”).</p>
 <div class="quarto-figure quarto-figure-center">
@@ -667,16 +670,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Esto revelará un botón para “Agregar control remoto”. Pinchalo. Ingrese <code>upstream</code> como nombre remoto y pegue la URL de <code>DUEÑO/REPO</code> que obtuvo de GitHub. Haga clic en “Agregar”. Rechace la oportunidad de agregar una nueva rama haciendo clic en “Cancelar”.</p>
 <p>Independientemente de cómo haya configurado <code>upstream</code>, haga esto en un shell:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section><section id="sec-fork-set-upstream-tracking-main" class="level3" data-number="31.1.3"><h3 data-number="31.1.3" class="anchored" data-anchor-id="sec-fork-set-upstream-tracking-main">
 <span class="header-section-number">31.1.3</span> Configurar la rama de seguimiento ascendente para la rama predeterminada</h3>
 <p>Esto es opcional pero muy recomendable para la mayoría de situaciones de bifurcación y clonación. Vamos a configurar <code>upstream/main</code> desde el repositorio de origen como la rama de seguimiento ascendente del <code>main</code> local. (Si su sucursal predeterminada tiene un nombre diferente, sustitúyalo según corresponda.)</p>
 <p>Esto es deseable para que un simple <code>git pull</code> importe cambios <strong>del repositorio fuente</strong>, no de su bifurcación. También significa que un simple <code>git push</code> (intentará) enviar al repositorio de origen, que casi siempre será rechazado ya que probablemente no tenga permiso. Esta falla le alertará del hecho de que está haciendo algo cuestionable, aunque aún será fácil echarse atrás.</p>
 <p>Primero, obtenga información para el control remoto <code>upstream</code>. Esto es especialmente importante si acaba de configurar <code>upstream</code> por primera vez.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Los dos comandos siguientes hacen lo mismo; el primero es sólo una abreviatura del segundo. Haga esto con la línea de comando Git en un shell:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-u</span> upstream/main</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span> upstream/main</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-u</span> upstream/main</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--set-upstream-to</span> upstream/main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Si este flujo de trabajo de bifurcación y clonación le pareció largo y tedioso, ¡considere usar <code>usethis::create_from_github()</code> la próxima vez!</p>
 </section></section><section id="sec-fork-and-clone-create-from-github" class="level2" data-number="31.2"><h2 data-number="31.2" class="anchored" data-anchor-id="sec-fork-and-clone-create-from-github">
 <span class="header-section-number">31.2</span> <code>usethis::create_from_github("OWNER/REPO", fork = TRUE)</code>
@@ -685,18 +688,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Supongo que ya estás visitando el repositorio fuente en el navegador. Ahora haga clic en el gran botón verde que dice “&lt;&gt; Código”. Copie una URL clonada a su portapapeles. Si sigue nuestro consejo predeterminado, copie la URL HTTPS. Pero si opta por SSH, asegúrese de copiar la URL de SSH.</p>
 <p>Puede ejecutar el siguiente comando en cualquier sesión de R. Si usa RStudio, hágalo en la consola R de cualquier instancia de RStudio. En cualquier caso, después de completarlo exitosamente, deberías encontrarte en el nuevo proyecto que es el repositorio local conectado a tu bifurcación.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_from_github</span><span class="op">(</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_from_github</span><span class="op">(</span></span>
 <span>  <span class="st">"https://github.com/DUEÑO/REPO"</span>,</span>
 <span>  destdir <span class="op">=</span> <span class="st">"~/ruta/a/dónde/quieres/el/local/repositorio/"</span>,</span>
 <span>  fork <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="op">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>El primer argumento es <code>repo_spec</code> y acepta la especificación del repositorio de GitHub en varias formas. En particular, puede utilizar la URL que acabamos de copiar para el repositorio fuente.</p>
 <p>El argumento <code>destdir</code> especifica el directorio principal donde desea que resida la nueva carpeta (y el repositorio local de Git). Si no especifica <code>destdir</code>, use este valor predeterminado en algún lugar muy visible, como su escritorio. Si desea mantener los repositorios de Git en una determinada carpeta de su computadora, puede personalizar este valor predeterminado configurando la opción <code>usethis.destdir</code> en su <code>.Rprofile</code>.</p>
 <p>El argumento <code>fork</code> especifica si se debe clonar (<code>fork = FALSE</code>) o bifurcar y clonar (<code>fork = TRUE</code>). A menudo no es necesario especificar “fork” y simplemente puedes disfrutar del comportamiento predeterminado, que se rige por tus permisos en el repositorio de origen. De forma predeterminada, <code>fork = FALSE</code> si puede enviar al repositorio de origen y <code>fork = TRUE</code> si no puede.</p>
 <p>Así es como podría verse (tenga en cuenta que aceptamos el comportamiento predeterminado para muchos argumentos):</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_from_github</span><span class="op">(</span><span class="st">"https://github.com/DUEÑO/REPO"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_from_github</span><span class="op">(</span><span class="st">"https://github.com/DUEÑO/REPO"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ℹ Defaulting to 'https' Git protocol</span></span>
 <span><span class="co">#&gt; ✔ Setting `fork = TRUE`</span></span>
 <span><span class="co">#&gt; ✔ Creating '/aluguna/rutal/al/local/REPO/'</span></span>
@@ -707,7 +710,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co">#&gt; ✔ Adding 'upstream' remote: 'https://github.com/DUEÑO/REPO.git'</span></span>
 <span><span class="co">#&gt; ✔ Pulling changes from 'upstream/main'.</span></span>
 <span><span class="co">#&gt; ✔ Setting remote tracking branch for local 'main' branch to 'upstream/main'</span></span>
-<span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; ✔ Setting active project to '&lt;no active project&gt;'</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Para un usuario de RStudio, <code>create_from_github(fork = TRUE)</code> hace todo esto:</p>
 <ul>
@@ -741,22 +744,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 </ul>
 <p>En el shell, <code>git remote -v</code> debería revelar que sus controles remotos están configurados así:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">fetch</span><span class="kw">)</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git <span class="er">(</span><span class="ex">push</span><span class="kw">)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Información comparable está disponible en R con <code>usethis::git_remotes()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $origin</span></span>
 <span><span class="co">#&gt; [1] "https://github.com/YOU/REPO.git"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $upstream</span></span>
-<span><span class="co">#&gt; [1] "https://github.com/OWNER/repo.git"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="co">#&gt; [1] "https://github.com/OWNER/repo.git"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>En el shell, con la rama predeterminada seleccionada, <code>git branch -vv</code> debería revelar que <code>upstream/main</code> es la rama de seguimiento ascendente:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/some/repo/</span> % git branch <span class="at">-vv</span>                   </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> main 2739987 <span class="pp">[</span><span class="ss">upstream/main</span><span class="pp">]</span> Some commit message</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/some/repo/</span> % git branch <span class="at">-vv</span>                   </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> main 2739987 <span class="pp">[</span><span class="ss">upstream/main</span><span class="pp">]</span> Some commit message</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Toda esta información sobre controles remotos y sucursales también se incluye en la rica información reportada con <code>usethis::git_sitrep()</code>.</p>
 </section><section id="sec-fork-dont-touch-main" class="level2" data-number="31.4"><h2 data-number="31.4" class="anchored" data-anchor-id="sec-fork-dont-touch-main">
 <span class="header-section-number">31.4</span> No te metas con <code>main</code>
@@ -773,15 +776,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   // Chapter name
   const currentChapterFile = window.location.pathname.split('/').pop().replace('.html', '');
 
-  //Deffining urls
+  //Defining urls
   const originalURL = "https://github.com/jennybc/happy-git-with-r";
-  const translationURL = "https://github.com/davidrsch/hg-gh4res";
+  const translationURL = "https://github.com/davidrsch/hggh4r-es";
 
-  //Deffining texts
+  //Defining texts
   const edit_text = "Editar esta página";
   const issue_text = "Informar de un problema"
 
-  //Deffining git_i
+  //Defining git_i
   const git_i = '<div><i class="bi bi-github"></i></div>';
 
   // Adding TOC if not exist
@@ -886,13 +889,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
