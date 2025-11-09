@@ -5,6 +5,7 @@ project:
 book:
   title: "Git y GitHub con R"
   reader-mode: true
+  site-url: https://davidrsch.github.io/hggh4r-es/
 
   page-footer:
     left: |
