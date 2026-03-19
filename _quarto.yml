@@ -5,6 +5,11 @@ project:
 book:
   title: "Git y GitHub con R"
   reader-mode: true
+  site-url: https://davidrsch.github.io/hggh4r-es/
+  description: |
+    Traducción al español de "Happy Git and GitHub for the useR" de Jenny Bryan.
+    Integra Git y GitHub en tu flujo de trabajo con R de forma efectiva y sin fricción.
+  open-graph: true
 
   page-footer:
     left: |
