@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>20&nbsp; Repo, commit, diff, tag – Git y GitHub con R</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -26,7 +29,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -56,15 +58,14 @@ div.csl-indent {
 <link href="./logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-88522b031a232354deeec893f12ad6b8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-839d731705df609f9552b8dd28282571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -653,12 +654,12 @@ Figura&nbsp;20.1: Historial de confirmaciones parciales para nuestro ejemplo de 
 <p>Cada confirmación necesita algún tipo de apodo para que puedas identificarla. Git hace esto automáticamente, asignando a cada confirmación lo que se llama un SHA, una cadena aparentemente aleatoria de 40 letras y números (de hecho, no es aleatoria, sino que es un hash de suma de verificación SHA-1 de la confirmación). Aunque estará expuesto a estos, no es necesario que los maneje directamente con mucha frecuencia y, cuando lo hace, normalmente los primeros 7 caracteres son suficientes. Los mensajes de confirmación en <a href="#fig-commit-diff-sha-tag" class="quarto-xref">Figura&nbsp;<span>20.1</span></a> tienen el prefijo SHA truncado. También puedes designar ciertas instantáneas como especiales con una <strong>etiqueta</strong>, que es el nombre que elijas. En un proyecto de software, es típico etiquetar una versión con su versión, por ejemplo, “v1.0.3”. Para un manuscrito o proyecto analítico, puede etiquetar la versión enviada a una revista o transmitida a colaboradores externos. <a href="#fig-commit-diff-sha-tag" class="quarto-xref">Figura&nbsp;<span>20.1</span></a> muestra una etiqueta, “draft-01”, asociada con la última confirmación.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-git-for-humans" class="csl-entry" role="listitem">
-Bartlett, Alice. 2016. <span>«Git for Humans»</span>. Financial Times, London; Talk at UX Brighton. <a href="https://speakerdeck.com/alicebartlett/git-for-humans">https://speakerdeck.com/alicebartlett/git-for-humans</a>.
+Bartlett, Alice. 2016. <em>Git for Humans</em>. Financial Times, London; Talk at UX Brighton. <a href="https://speakerdeck.com/alicebartlett/git-for-humans">https://speakerdeck.com/alicebartlett/git-for-humans</a>.
 </div>
 <div id="ref-ten-simple-rules-git" class="csl-entry" role="listitem">
-Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, Timo Sachsenberg, Julian Uszkoreit, Felipe da Veiga Leprevost, Christian Fufezan, et&nbsp;al. 2016. <span>«Ten Simple Rules for Taking Advantage of Git and GitHub»</span>. <em>PLOS Computational Biology</em> 12 (7): 1-11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.
+Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, et&nbsp;al. 2016. <span>«Ten Simple Rules for Taking Advantage of Git and GitHub»</span>. <em>PLOS Computational Biology</em> 12 (7): 1-11. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.
 </div>
 <div id="ref-Ram2013" class="csl-entry" role="listitem">
 Ram, Karthik. 2013. <span>«Git can facilitate greater reproducibility and increased transparency in science»</span>. <em>Source Code for Biology and Medicine</em> 8 (1): 7. <a href="https://doi.org/10.1186/1751-0473-8-7">https://doi.org/10.1186/1751-0473-8-7</a>.
@@ -1152,7 +1153,7 @@ Ram, Karthik. 2013. <span>«Git can facilitate greater reproducibility and incre
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><strong>“Git y GitHub con”</strong> fue escrito por Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester.</p>
+<p><strong>“Git y GitHub con ”</strong> fue escrito por Jenny Bryan, profesores asistentes de STAT 545 y Jim Hester.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
